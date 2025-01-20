@@ -22,7 +22,79 @@
   ❌ Can get messy in larger apps
   ❌ Difficult to organize layouts and nested routes
 
-#### Configuration-Based Routing (React Router Dev)
+#### Large project routing using Component based routing
+
+- 1️⃣ Organize Routes Using RouteObject
+Instead of cluttering App.tsx, routes are defined in a separate routes.tsx file.
+
+        // 📂 src/routes.tsx
+        import { RouteObject } from "react-router-dom";
+        import Home from "./pages/Home";
+        import Signup from "./pages/Signup";
+        import Signin from "./pages/Signin";
+        import Blog from "./pages/Blog";
+        import DashboardLayout from "./pages/dashboard/Layout";
+        import Profile from "./pages/dashboard/Profile";
+        import Settings from "./pages/dashboard/Settings";
+        
+        const routes: RouteObject[] = [
+        { path: "/", element: <Home /> },
+        { path: "/signup", element: <Signup /> },
+        { path: "/signin", element: <Signin /> },
+        { path: "/blog/:id", element: <Blog /> },
+        {
+        path: "/dashboard",
+        element: <DashboardLayout />, // Layout wraps child routes
+        children: [
+        { path: "profile", element: <Profile /> },
+        { path: "settings", element: <Settings /> },
+        ],
+        },
+        ];
+        
+        export default routes;
+
+
+- 2️⃣ Use useRoutes() for Rendering the Routes
+  Instead of manually adding <Routes> and <Route> in App.tsx, we use useRoutes(routes).
+
+        // 📂 src/App.tsx
+        import { BrowserRouter, useRoutes } from "react-router-dom";
+        import routes from "./routes";
+        
+        function AppRoutes() {
+        return useRoutes(routes); // Loads routes dynamically
+        }
+        
+        function App() {
+        return (
+        <BrowserRouter>
+        <AppRoutes />
+        </BrowserRouter>
+        );
+        }
+        
+        export default App;
+
+
+🚀 Why Was This Used in Large Projects?
+✅ Keeps routes modular & separate from UI components
+✅ Easy to scale—just add new route objects
+✅ Supports layouts & nested routes
+✅ Uses built-in React Router features (No extra dependencies like @react-router/dev)
+
+
+🔄 JSX vs. @react-router/dev — Which One Should You Use?
+Feature	     || JSX-Based (useRoutes)	                       || @react-router/dev
+Ease of Use	 || ✅ Simple for JSX users	                       || 🔸 Requires learning config-based routing
+Scalability  ||	✅ Modular & maintainable	                   || ✅ Even more structured for large apps
+Stability    || ✅ Stable, industry standard	               || 🔸 Experimental, may change
+Performance  || ✅ Uses built-in React Router features	       || ✅ Potentially optimized for large apps
+Adoption	 || ✅ Widely used	                               || ❌ Not widely adopted yet
+
+### New way of doing routing
+
+#### Configuration-Based Routing (React Router Dev) 
 
     import { route, layout, index, prefix } from "@react-router/dev/routes";
         export default [
