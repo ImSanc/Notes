@@ -88,3 +88,94 @@ Benefits of This Approach
 ✅ Keeps route definitions separate from UI components
 ✅ Supports layouts and nested routes easily
 ✅ Simplifies large-scale applications
+
+
+#### For large application we should have Structure for routing
+
+        /src
+        │── /routes
+        │   │── index.ts           # Main router entry point
+        │   │── auth.ts            # Authentication-related routes
+        │   │── dashboard.ts       # Dashboard-related routes
+        │   │── blog.ts            # Blog-related routes
+        │
+        │── /pages
+        │   │── Home.tsx
+        │   │── Signup.tsx
+        │   │── Signin.tsx
+        │   │── Blog.tsx
+        │   │── /dashboard
+        │   │   │── Layout.tsx
+        │   │   │── Profile.tsx
+        │   │   │── Settings.tsx
+        │
+        │── App.tsx
+
+- 1️⃣ Define Sub-Routes in Separate Files
+  - 🔹 routes/auth.ts (Authentication Routes)
+
+          import { route } from "@react-router/dev/routes";
+        
+          export default [
+          route("signup", "../pages/Signup.tsx"),
+          route("signin", "../pages/Signin.tsx"),
+          ];
+  
+  -🔹 routes/blog.ts (Blog Routes)
+
+        import { route } from "@react-router/dev/routes";
+        
+        export default [
+        route("blog/:id", "../pages/Blog.tsx"),
+        ];
+
+  - 🔹 routes/dashboard.ts (Dashboard Routes)
+        
+        import { layout, route } from "@react-router/dev/routes";
+        
+        export default [
+        layout("../pages/dashboard/Layout.tsx", [
+        route("profile", "../pages/dashboard/Profile.tsx"),
+        route("settings", "../pages/dashboard/Settings.tsx"),
+        ]),
+        ];
+  
+    - 2️⃣ Combine All Routes in routes/index.ts
+
+
+        import { type RouteConfig, index } from "@react-router/dev/routes";
+        import authRoutes from "./auth";
+        import blogRoutes from "./blog";
+        import dashboardRoutes from "./dashboard";
+    
+        export default [
+        index("../pages/Home.tsx"), // Root "/"
+        ...authRoutes, // Spread auth routes
+        ...blogRoutes, // Spread blog routes
+        ...dashboardRoutes, // Spread dashboard routes
+        ] satisfies RouteConfig;
+
+
+- 3️⃣ Use Routes in App.tsx
+
+        import { BrowserRouter } from "react-router-dom";
+        import { createRouter } from "@react-router/dev";
+        import routes from "./routes";
+        
+        const Router = createRouter(routes);
+        
+        function App() {
+        return (
+        <BrowserRouter>
+        <Router />
+        </BrowserRouter>
+        );
+        }
+        
+        export default App;
+
+
+🚀 Why Is This Better?
+✅ Modular & Maintainable – Easier to manage and scale.
+✅ Separation of Concerns – Keeps routes clean and categorized.
+✅ Better Readability – Helps developers find routes quickly.
