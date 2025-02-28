@@ -16,3 +16,7 @@ Output :
 2. 0 when its equal to the value it is compared with
 3. 1 when the value is equal to the value it is being compared with
 
+If you want to use Comparable with an anonymous class, it's not possible in the usual way because Comparable must be implemented inside the class itself
+. However, if you don't want to modify the class directly, you must use Comparator instead.
+
+But if you're asking whether you can sort an anonymous class that implements Comparable, then yes, you can create an anonymous inner class that implements Comparable<T> on the fly.
