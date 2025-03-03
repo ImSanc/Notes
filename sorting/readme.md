@@ -81,6 +81,62 @@
 
  - O(nlogn)
 - Stable
-- Not in-place: Requires extra space for merging.
+  - Not in-place: Requires extra space for merging.
+
+        private void mergeSort( int[] nums , int left ,int right)
+        {
+        if( left< right){
+        int mid = left + ( right - left)/2;
+
+              mergeSort( nums , left , mid );
+              mergeSort( nums , mid+1 , right);
+              merge( nums , left ,mid , right);
+          }
+        }
+  
+        private void merge( int[] nums , int left ,int mid , int right )
+        {
+            int[] arr1 = new int[ mid-left+1];
+            int[] arr2 = new int[ right - mid];
+
+          for( int i = 0 ; i < arr1.length ; i++ )
+          {
+              arr1[i] = nums[left+i];
+          }
+
+          for( int i = 0 ; i< arr2.length ; i++ )
+          {
+              arr2[i] = nums[mid+1 +i];
+          }
+
+          int len1 = arr1.length , len2 = arr2.length;
+          int i = 0 , j= 0 , idx = left;
+
+          while( i < len1 && j < len2 )
+          {
+              int num1 = arr1[i] , num2 = arr2[j];
+              if( num1 < num2)
+              {
+                  nums[idx] = num1;
+                  i++;
+              }
+              else
+              {
+                  nums[idx] = num2;
+                  j++;
+              }
+              idx++;
+          }
+
+          while( i < len1 )
+          {
+              nums[idx++] = arr1[i++];
+          }
+
+          while( j < len2 )
+          {
+              nums[idx++] = arr2[j++];
+          }
+        }
 
 
