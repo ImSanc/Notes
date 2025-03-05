@@ -32,4 +32,57 @@
         return i + 1; // Return partition index
     }
 
-#
+# Hoare Partition
+
+- The Hoare partition scheme is another partitioning algorithm used in QuickSort.
+- It is more efficient than the Lomuto partition in many cases because it reduces the number of swaps.
+
+Steps of Hoare Partitioning:
+1. Choose a pivot (usually the first element).
+
+2. Use two pointers:
+
+ - i starts from the left.
+
+ - j starts from the right.
+
+- Move i forward until an element greater than or equal to the pivot is found.
+
+- Move j backward until an element smaller than or equal to the pivot is found.
+
+- Swap arr[i] and arr[j] to ensure elements smaller than the pivot are on the left and larger ones are on the right.
+
+- Repeat the process until i and j cross each other.
+
+- Return j (partition index).
+
+
+    public static int partition(int[] arr, int low, int high) {
+        int pivot = arr[low]; // Choosing the first element as pivot
+        int i = low - 1, j = high + 1;
+
+        while (true) {
+            do {
+                i++; // Move i forward to find an element >= pivot
+            } while (arr[i] < pivot);
+
+            do {
+                j--; // Move j backward to find an element <= pivot
+            } while (arr[j] > pivot);
+
+            if (i >= j) // If indices cross, return partition index
+                return j;
+
+            // Swap elements at i and j
+            swap(arr, i, j);
+        }
+    }
+
+
+Key Differences Between Hoare and Lomuto:
+
+Feature             	Hoare Partition             	Lomuto Partition
+Pivot Choice	    Usually first element	            Usually last element
+Swaps	                    Fewer swaps	                More swaps
+Efficiency	            Faster (fewer swaps)	        Slower in some cases
+Partition Index	        Returns j	                    Returns i+1
