@@ -86,3 +86,11 @@ Pivot Choice	    Usually first element	            Usually last element
 Swaps	                    Fewer swaps	                More swaps
 Efficiency	            Faster (fewer swaps)	        Slower in some cases
 Partition Index	        Returns j	                    Returns i+1
+
+
+#### What Happens with the Pivot in Hoare Partition?
+- In Hoare's Partition Scheme, the pivot does not necessarily end up in its final sorted position after partitioning. Instead, it ensures that:
+
+- Elements smaller than or equal to the pivot are on the left.
+
+- Elements greater than or equal to the pivot are on the right.
