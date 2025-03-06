@@ -140,3 +140,93 @@
         }
 
 
+## Quick sort
+
+- Quick Sort is a divide-and-conquer sorting algorithm that works by selecting a pivot and partitioning the array into two halves such that:
+
+- The left half contains elements smaller than the pivot.
+- The right half contains elements greater than the pivot.
+- It then recursively sorts both halves.
+- O(N log N) worst O(N^2)
+- Not stable
+
+#### Partitioning Schemes
+
+- Naive 
+Stable but takes O(n^2)
+
+
+- Lomuto Partitioning (Last Element as Pivot)
+Selects the last element as the pivot.
+Swaps elements to ensure the pivot is placed in its correct position.
+
+- Hoare Partitioning (More Efficient)
+Uses two pointers to swap elements and results in better-balanced partitions.
+
+    
+      //Lomuto partition
+    private void quickSort( int[] nums, int low , int high)
+    {
+        if( low < high)
+        {
+            int p = partition(nums, low , high);
+            quickSort(nums , low , p-1);
+            quickSort( nums , p+1 , high);
+        }
+    }
+
+    private int partition( int[] nums , int low , int high )
+    {
+        int pivot = nums[high];
+
+        int i = low -1 ;
+
+        while( low < high)
+        {
+            if( nums[low] < pivot )
+            {
+                i++;
+                swap( nums , i , low);
+            }
+            low++;
+        }
+        swap(nums , high , ++i);
+        return i;
+    }
+
+
+    //Hoare partition
+    private void quickSort(int[] nums , int low , int high)
+    {
+        if( low < high)
+        {
+            int j = partition( nums, low , high);
+            quickSort( nums, low , j);
+            quickSort( nums, j+1 , high);
+        }
+    }
+    private int partition( int[] nums , int low , int high)
+    {
+        int pivot = nums[low];
+        int i = low-1 , j = high+1;
+
+       while (true){ 
+            do{
+                i++;
+            }while( i<=high &&  nums[i] < pivot);
+
+            do{
+                j--;
+            }while( j>=low && nums[j]>pivot);
+
+            if( i >=j){
+                return j;
+            }
+            swap(nums,i , j);
+        }
+    }
+
+
+
+
+
