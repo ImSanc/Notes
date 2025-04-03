@@ -46,3 +46,9 @@
 - A Getter is the method on a class that retrieves the value of  private field and return it.
 - A Setter is a method on a class that sets the value of a private field
 - The purpose of these methods are to protect and control access to private fields
+
+### This
+- <b>this</b> is the special keyword in java.
+- What it really refers to is the instance that was created when the object was initiated.
+- So, <b>this</b> is a special reference name for the object or instance , which it can use to describe itself.
+- we can use <b> this </b> to access fields on the class.
