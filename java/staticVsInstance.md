@@ -39,3 +39,18 @@
 - Every instance can have a different value.
 - Instance variables represent the state of a specific instance of a class.
 ![img_5.png](img_5.png)
+
+
+## Static vs Instance method
+
+### Static method 
+- Static method are declared using static keyword.
+- Static method can't access instance methods or instance variable directly.
+- They're usually used for operations that don't require any data from an instance of the class (<b> from 'this'</b>)
+- In static method you cannot use this keyword.
+- In a method where we dont use instance variable , you should probably declare them as static.
+
+### Instance method
+- They belong to a instance of a class.
+- To use a instance method, we need to create an instance of a class , usually by <b>new</b> keyword.
+- It can access instance as well as static method and variable directly.
