@@ -6,12 +6,12 @@ A class can be described as:
 
 
 ### Class can be defined as an empty form which is handed out , objects are the data that filled in a form creating an object
-![img.png](img.png)
+![img.png](img/img.png)
 
 # Object
 - An Object is called an instance of a particular class.
 
-![img_1.png](img_1.png)
+![img_1.png](img/img_1.png)
 
 ### Declaring and instantiating a new object from a class
 - The most common way to create an object is to use the <b>new</b> Keyword.
@@ -21,7 +21,7 @@ because we can create String just by using literals which we've seen.
 
 
 ## Difference between static and instance fields 
-![img_2.png](img_2.png)
+![img_2.png](img/img_2.png)
 
 #### 🧠 Key Concept: When Are Static Fields Created?
 - Yes, static fields are created and assigned memory even if the class hasn’t been instantiated (i.e., no objects of it are created yet).
@@ -72,4 +72,4 @@ because we can create String just by using literals which we've seen.
 
 
 ### Same goes on with static and initiated methods as well.
-![img_3.png](img_3.png)
+![img_3.png](img/img_3.png)

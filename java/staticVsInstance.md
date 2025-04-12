@@ -29,7 +29,7 @@
   - Storing a constant value that doesn't change, like IP.
   - creating and controlling access to the shared resources.
 
-![img_4.png](img_4.png)
+![img_4.png](img/img_4.png)
 
 ## Instance variable
 - They don't use the static keyword.
@@ -38,7 +38,7 @@
 - Each instance has its own copy of an instance variable.
 - Every instance can have a different value.
 - Instance variables represent the state of a specific instance of a class.
-![img_5.png](img_5.png)
+![img_5.png](img/img_5.png)
 
 
 ## Static vs Instance method
