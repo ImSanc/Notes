@@ -8,7 +8,7 @@
 
 ### Note : here interface doesn't means actual interface but those methods which are accessible of not.
 
-![img.png](img.png)
+![img.png](../../img/encap1.png)
 
 ### Problem One
 - Allowing direct access to data on an object can potentially bypass checks and additional processing your class has in place to manage the data.
