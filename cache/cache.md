@@ -29,3 +29,23 @@ If the thing is not there = it's a "miss" = slow, have to go look in bigger memo
 - Hit ratio – how often it finds things in the fast memory (more is better!)
 
  - Latency – how fast it can find things (less is better!)
+
+
+### Summary: Must-Know Set
+### If you're aiming for backend, systems design, or performance engineering roles, start with these:
+
+✅ LRU
+
+✅ LFU
+
+✅ MRU
+
+✅ FIFO
+
+✅ ARC
+
+✅ TLRU (for time-aware caching)
+
+✅ SIEVE (for modern web workloads)
+
+✅ TinyLFU / W-TinyLFU (for highly optimized systems)
