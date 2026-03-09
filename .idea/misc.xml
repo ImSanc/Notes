@@ -6,10 +6,12 @@
       <list>
         <option value="$PROJECT_DIR$/SpringBoot/pom.xml" />
         <option value="$PROJECT_DIR$/systemDes/pom.xml" />
+        <option value="$PROJECT_DIR$/Spring4/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/Spring4/pom.xml" />
         <option value="$PROJECT_DIR$/SpringBoot/pom.xml" />
       </set>
     </option>

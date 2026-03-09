@@ -10,6 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Spring4" target="17" />
       <module name="SpringBoot" target="17" />
     </bytecodeTargetLevel>
   </component>
